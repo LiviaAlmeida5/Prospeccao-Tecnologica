@@ -1,0 +1,35 @@
+services:
+  mongodb:
+    image: mongo:latest
+    container_name: mongodb
+    restart: unless-stopped
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongo_data:/data/db
+
+  neo4j:
+    image: neo4j:latest
+    container_name: neo4j
+    restart: unless-stopped
+    ports:
+      - "7474:7474"
+      - "7687:7687"
+    environment:
+      NEO4J_AUTH: neo4j/senha123
+    volumes:
+      - neo4j_data:/data
+
+  cassandra:
+    image: cassandra:latest
+    container_name: cassandra
+    restart: unless-stopped
+    ports:
+      - "9042:9042"
+    volumes:
+      - cassandra_data:/var/lib/cassandra
+
+volumes:
+  mongo_data:
+  neo4j_data:
+  cassandra_data:
