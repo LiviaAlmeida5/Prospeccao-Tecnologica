@@ -5,18 +5,16 @@ import random
 import time
 import statistics
 
-# =====================================================
+
 # CONFIGURAÇÕES
-# =====================================================
 
 NUM_USUARIOS = 1000
 SEGUIDOS_POR_USUARIO = 10
 PROFUNDIDADE = 4
 REPETICOES = 10
 
-# =====================================================
+
 # CONEXÕES
-# =====================================================
 
 mongo = MongoClient("mongodb://localhost:27017")
 
@@ -28,9 +26,8 @@ neo4j_driver = GraphDatabase.driver(
     auth=("neo4j", "senha123")
 )
 
-# =====================================================
 # POPULAR MONGODB
-# =====================================================
+
 
 def popular_mongo():
 
@@ -63,9 +60,9 @@ def popular_mongo():
 
     print("MongoDB populado.\n")
 
-# =====================================================
+
 # POPULAR NEO4J
-# =====================================================
+
 
 def popular_neo4j():
 
@@ -118,9 +115,7 @@ def popular_neo4j():
 
     print("Neo4j populado.\n")
 
-# =====================================================
 # CONSULTA MONGODB
-# =====================================================
 
 def consulta_mongo(usuario_inicial):
 
@@ -160,9 +155,7 @@ def consulta_mongo(usuario_inicial):
 
     return (fim - inicio) * 1000, len(visitados)
 
-# =====================================================
 # CONSULTA NEO4J
-# =====================================================
 
 def consulta_neo4j(usuario):
 
@@ -185,9 +178,7 @@ def consulta_neo4j(usuario):
 
     return (fim - inicio) * 1000, total
 
-# =====================================================
 # BENCHMARK
-# =====================================================
 
 def benchmark():
 
@@ -238,9 +229,8 @@ def benchmark():
             f"{ganho:.2f}x mais rápido."
         )
 
-# =====================================================
+
 # MAIN
-# =====================================================
 
 if __name__ == "__main__":
 

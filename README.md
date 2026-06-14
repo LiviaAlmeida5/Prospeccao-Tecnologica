@@ -1,1 +1,1 @@
-# Prospec-o-Tecnol-gica
+# Prospecção-Tecnológica
